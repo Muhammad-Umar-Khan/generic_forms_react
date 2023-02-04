@@ -7,8 +7,14 @@ const SimpleInput = (props) => {
   const inputChangeHandler = (event) => {
     setValue(event.target.value);
   };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    console.log(value);
+    setValue("");
+  };
   return (
-    <form>
+    <form onSubmitCapture={submitHandler}>
       <div className="form-control">
         <label htmlFor="name">Your Name</label>
         <input
